@@ -1,9 +1,7 @@
-// src/utils/calculateObservability.js
-
 /**
  * Determines if an exoplanet is observable by HWO based on its properties and HWO parameters.
  * @param {Object} exoplanet - The exoplanet object.
- * @param {Object} hwoParams - HWO parameters (telescopeDiameter).
+ * @param {Object} hwoParams - HWO parameters (telescopeDiameter, distance).
  * @returns {boolean} - True if observable, else false.
  */
 export const isObservable = (exoplanet, hwoParams) => {
@@ -15,8 +13,8 @@ export const isObservable = (exoplanet, hwoParams) => {
     return false;
   }
 
-  // From Resources Page
-  const SNR0 = 100; // Baseline SNR for Earth-like planet at 10 pc with 6 m telescope
+  // Baseline SNR for Earth-like planet at 10 pc with 6 m telescope
+  const SNR0 = 100; // From Resources Page
 
   // Calculate SNR
   const SNR =
