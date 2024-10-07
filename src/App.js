@@ -56,6 +56,7 @@ function App() {
       <header style={{padding: '0rem 2rem', position: 'absolute', zIndex: 5, color: 'white', backgroundColor: '#ffffff50', width: '100%'}}>
         <h2>Habitable Worlds Observatory (HWO) Exoplanet Visualizer</h2>
         <p>Drag the mouse to rotate and scroll to zoom in/out of the display. Click on any exoplanet to learn more!</p>
+        <p>Learn more about the HWO <a target="_blank" rel="noopener noreferrer" href='https://habitableworldsobservatory.org/home'>here</a></p>
         <p>Exoplanets displayed: {exoplanets.length}, exoplanets characterizable by HWO: {processedExoplanets[1]}</p>
       </header>
       <ControlPanel hwoParams={hwoParams} setHwoParams={setHwoParams} />
