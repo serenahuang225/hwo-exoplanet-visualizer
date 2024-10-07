@@ -6,6 +6,7 @@ import ExoplanetMarker from './ExoplanetMarker';
 import { isObservable } from '../utils/calculateObservability';
 import * as THREE from 'three';
 import Earth from './Earth';
+import { TooltipProvider } from './TooltipContext';
 
 function StarsBackground() {
   const starTexture = useLoader(THREE.TextureLoader, '/textures/stars.jpg');
@@ -32,6 +33,7 @@ const ThreeDScene = ({ exoplanets, hwoParams }) => {
       <directionalLight position={[10, 10, 5]} intensity={1} />
       <StarsBackground />
 
+      
       {processedExoplanets.map((planet) => (
         <ExoplanetMarker key={planet.name} data={planet} />
       ))}

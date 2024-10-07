@@ -3,12 +3,14 @@ import React, { useRef } from 'react';
 import { useThree } from '@react-three/fiber';
 import { MeshStandardMaterial } from 'three';
 import { convertToCartesian } from '../utils/coordinateConversion';
+import { useTooltip } from './TooltipContext';
 
 
 const ExoplanetMarker = ({ data, hwoParams }) => {
+  const { showTooltip, hideTooltip } = useTooltip()
   const meshRef = useRef();
 
-  console.log(data)
+  // console.log(data)
   const { ra, dec, distance, isObservable, name } = data;
 
   // Handle missing or invalid data
@@ -21,28 +23,30 @@ const ExoplanetMarker = ({ data, hwoParams }) => {
   // Color based on observability
   const color = isObservable ? '#00ff00' : '#ff0000';
 
-  // const handlePointerOver = (e) => {
-  //   e.stopPropagation();
-  //   showTooltip(name, { x: e.clientX, y: e.clientY });
-  // };
+  const handlePointerOver = (e) => {
+    e.stopPropagation();
+    console.log("tooltip in")
+    showTooltip(name, { x: e.clientX, y: e.clientY });
+  };
 
-  // const handlePointerOut = (e) => {
-  //   e.stopPropagation();
-  //   hideTooltip();
-  // };
+  const handlePointerOut = (e) => {
+    e.stopPropagation();
+    hideTooltip();
+  };
 
-  // const handleClick = (e) => {
-  //   e.stopPropagation();
+  const handleClick = (e) => {
+    e.stopPropagation();
+    console.log("help!")
   //   setSelectedExoplanet(data);
-  // };
+  };
 
   return (
     <mesh
       position={[x, y, z]}
       // ref={meshRef}
-      // onPointerOver={handlePointerOver}
-      // onPointerOut={handlePointerOut}
-      // onClick={handleClick}
+      onPointerOver={handlePointerOver}
+      onPointerOut={handlePointerOut}
+      onClick={handleClick}
     >
       <sphereGeometry args={[0.1, 16, 16]} />
       <meshStandardMaterial color={color} />

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { parseCSV } from './utils/parseCSV';
 import ThreeDScene from './components/ThreeDScene';
 import ControlPanel from './components/ControlPanel';
+import { TooltipProvider, useTooltip } from './components/TooltipContext';
+import Tooltip from './components/Tooltip';
 
 function App() {
   const [exoplanets, setExoplanets] = useState([]);
@@ -17,7 +19,6 @@ function App() {
   });
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const data = await parseCSV('/exoplanets_all.csv');
@@ -32,8 +33,6 @@ function App() {
     fetchData();
   }, []);
 
-  console.log(exoplanets)
-
   if (loading) return <div>Loading exoplanet data...</div>;
   if (error) return <div>Error loading data: {error.message}</div>;
 
@@ -42,9 +41,12 @@ function App() {
       <header style={{padding: '0rem 2rem', position: 'absolute', zIndex: 5, color: 'white', backgroundColor: '#ffffff50', width: '100%'}}>
         <h2>Habitable Worlds Observatory (HWO) Exoplanet Visualizer</h2>
       </header>
-      {/* <ControlPanel hwoParams={hwoParams} setHwoParams={setHwoParams} /> */}
+      <ControlPanel hwoParams={hwoParams} setHwoParams={setHwoParams} />
 
-      <ThreeDScene hwoParams={hwoParams} exoplanets={exoplanets} />
+      <TooltipProvider>
+        <Tooltip />
+        <ThreeDScene hwoParams={hwoParams} exoplanets={exoplanets} />
+      </TooltipProvider>
     </div>
   );
 }

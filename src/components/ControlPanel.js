@@ -1,12 +1,8 @@
 import React from 'react';
 
-const ControlPanel = ({ hwoParams, setHwoParams, filters, setFilters }) => {
+const ControlPanel = ({ hwoParams, setHwoParams }) => {
   const handleDiameterChange = (e) => {
     setHwoParams({ ...hwoParams, telescopeDiameter: Number(e.target.value) });
-  };
-
-  const handleDiscoveryMethodChange = (e) => {
-    setFilters({ ...filters, discoveryMethod: e.target.value });
   };
 
   return (
@@ -26,19 +22,6 @@ const ControlPanel = ({ hwoParams, setHwoParams, filters, setFilters }) => {
           <span>{hwoParams.telescopeDiameter} m</span>
         </label>
       </div>
-      <div>
-        <label>
-          Discovery Method:
-          <select value={filters.discoveryMethod} onChange={handleDiscoveryMethodChange}>
-            <option value="">All</option>
-            <option value="Transit">Transit</option>
-            <option value="Radial Velocity">Radial Velocity</option>
-            <option value="Imaging">Imaging</option>
-            <option value="Microlensing">Microlensing</option>
-          </select>
-        </label>
-      </div>
-      {/* Add more controls as needed */}
     </div>
   );
 };

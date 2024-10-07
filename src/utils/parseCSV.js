@@ -8,13 +8,13 @@ import Papa from 'papaparse';
 export const parseCSV = async (url) => {
   try {
     const response = await fetch(url);
-    console.log(response)
+    // console.log(response)
     const reader = response.body.getReader();
     const result = await reader.read(); // raw array
     const decoder = new TextDecoder('utf-8');
     const csv = decoder.decode(result.value); // the csv text
     const results = Papa.parse(csv, { header: true, dynamicTyping: true });
-    console.log(results)
+    // console.log(results)
 
     const mappedData = results.data.map(row => ({
       name: row.pl_name,
@@ -36,7 +36,7 @@ export const parseCSV = async (url) => {
       // Add other mapped fields if necessary
     }));
 
-    console.log(mappedData)
+    // console.log(mappedData)
 
     return mappedData;
   } catch (error) {
