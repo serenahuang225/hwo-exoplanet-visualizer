@@ -31,6 +31,7 @@ export const parseCSV = async (url) => {
       discoveryYear: row.disc_year,
       discoveryFac: row.disc_facility,
       eqlTemp: row.pl_eqt,
+      gaiamag: row.sy_gaiamag,
       // Add other mapped fields if necessary
     }));
 

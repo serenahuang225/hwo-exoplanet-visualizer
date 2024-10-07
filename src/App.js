@@ -6,6 +6,7 @@ import { TooltipProvider, useTooltip } from './components/TooltipContext';
 import Tooltip from './components/Tooltip';
 import InfoModal from './components/InfoModal';
 import { isObservable } from './utils/calculateObservability';
+import StatsModal from './components/StatsModal';
 
 function App() {
   const [exoplanets, setExoplanets] = useState([]);
@@ -36,7 +37,7 @@ function App() {
     fetchData();
   }, []);
 
-  console.log(exoplanets)
+  // console.log(exoplanets)
 
   const processedExoplanets = useMemo(() => {
     let cnt = 0;
@@ -53,7 +54,7 @@ function App() {
 
   return (
     <div className="App">
-      <header style={{padding: '0rem 2rem', position: 'absolute', zIndex: 5, color: 'white', backgroundColor: '#ffffff50', width: '100%'}}>
+      <header className='header'>
         <h2>Habitable Worlds Observatory (HWO) Exoplanet Visualizer</h2>
         <p>Drag the mouse to rotate and scroll to zoom in/out of the display. Click on any exoplanet to learn more!</p>
         <p>Learn more about the HWO <a target="_blank" rel="noopener noreferrer" href='https://habitableworldsobservatory.org/home'>here</a></p>
@@ -66,6 +67,8 @@ function App() {
         <InfoModal />
         <ThreeDScene processedExoplanets={processedExoplanets[0]} />
       </TooltipProvider>
+
+      <StatsModal processedExoplanets={processedExoplanets[0]} />
     </div>
   );
 }

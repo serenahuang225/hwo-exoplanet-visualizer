@@ -30,4 +30,28 @@ body {
   width: 25vw;
   bottom: 0;
   right: 0;
+  max-height: 50vh;
+  overflow: scroll;
+}
+.modal2 {
+  padding: 2rem 2rem;
+  position: absolute;
+  z-index: 5;
+  color: white;
+  background-color: #ffffff50;
+  width: 25vw;
+  top: 0;
+  right: 0;
+  max-height: 40vh;
+  overflow: scroll;
+}
+.header {
+  padding: 2rem 2rem;
+  position: absolute;
+  z-index: 5;
+  color: white;
+  background-color: #ffffff50;
+  width: 50vw;
+  top: 0;
+  left: 0;
 }
