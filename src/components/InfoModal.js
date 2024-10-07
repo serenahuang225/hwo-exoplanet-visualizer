@@ -7,7 +7,7 @@ const InfoModal = () => {
 
   return (
     <div className="modal">
-      <button onClick={() => setSelectedExoplanet({})}>Close</button>
+      <button onClick={() => setSelectedExoplanet(null)}>Close</button>
       <h2>{selectedExoplanet.name}</h2>
       <p>Distance: {selectedExoplanet.distance} light-years</p>
       <p>Host Star: {selectedExoplanet.hostStar}</p>

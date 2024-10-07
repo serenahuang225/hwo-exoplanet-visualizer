@@ -4,6 +4,7 @@ import ThreeDScene from './components/ThreeDScene';
 import ControlPanel from './components/ControlPanel';
 import { TooltipProvider, useTooltip } from './components/TooltipContext';
 import Tooltip from './components/Tooltip';
+import InfoModal from './components/InfoModal';
 
 function App() {
   const [exoplanets, setExoplanets] = useState([]);
@@ -45,6 +46,7 @@ function App() {
 
       <TooltipProvider>
         <Tooltip />
+        <InfoModal />
         <ThreeDScene hwoParams={hwoParams} exoplanets={exoplanets} />
       </TooltipProvider>
     </div>
