@@ -7,7 +7,7 @@ import { useTooltip } from './TooltipContext';
 
 
 const ExoplanetMarker = ({ data, hwoParams }) => {
-  const { showTooltip, hideTooltip } = useTooltip()
+  const { showTooltip, hideTooltip, setSelectedExoplanet } = useTooltip()
   const meshRef = useRef();
 
   // console.log(data)
@@ -36,8 +36,7 @@ const ExoplanetMarker = ({ data, hwoParams }) => {
 
   const handleClick = (e) => {
     e.stopPropagation();
-    console.log("help!")
-  //   setSelectedExoplanet(data);
+    setSelectedExoplanet(data);
   };
 
   return (

@@ -7,7 +7,7 @@ const ControlPanel = ({ hwoParams, setHwoParams }) => {
 
   return (
     <div className="control-panel">
-      <h2>HWO Parameters</h2>
+      <h2>HWO Telescope Parameters</h2>
       <div>
         <label>
           Telescope Diameter (m):

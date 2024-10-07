@@ -9,6 +9,8 @@ export const TooltipProvider = ({ children }) => {
     visible: false,
   });
 
+  const [selectedExoplanet, setSelectedExoplanet] = useState({});
+
   // Show the tooltip with specified text and position
   const showTooltip = useCallback((text, position) => {
     setTooltip({
@@ -24,7 +26,7 @@ export const TooltipProvider = ({ children }) => {
   }, []);
 
   return (
-    <TooltipContext.Provider value={{ tooltip, showTooltip, hideTooltip }}>
+    <TooltipContext.Provider value={{ tooltip, showTooltip, hideTooltip, selectedExoplanet, setSelectedExoplanet }}>
       {children}
     </TooltipContext.Provider>
   );
