@@ -9,7 +9,7 @@ export const TooltipProvider = ({ children }) => {
     visible: false,
   });
 
-  const [selectedExoplanet, setSelectedExoplanet] = useState({});
+  const [selectedExoplanet, setSelectedExoplanet] = useState(null);
 
   // Show the tooltip with specified text and position
   const showTooltip = useCallback((text, position) => {

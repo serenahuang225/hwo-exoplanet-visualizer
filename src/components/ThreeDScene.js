@@ -19,20 +19,12 @@ function StarsBackground() {
   );
 }
 
-const ThreeDScene = ({ exoplanets, hwoParams }) => {
-  const processedExoplanets = useMemo(() => {
-    return exoplanets.map((planet) => ({
-      ...planet,
-      isObservable: isObservable(planet, hwoParams),
-    }));
-  }, [exoplanets, hwoParams]);
-
+const ThreeDScene = ({ processedExoplanets}) => {
   return (
     <Canvas style={{ background: 'white' }} camera={{ position: [0, 0, 5], fov: 70 }}>
       <ambientLight intensity={1} />
       <directionalLight position={[10, 10, 5]} intensity={1} />
       <StarsBackground />
-
       
       {processedExoplanets.map((planet) => (
         <ExoplanetMarker key={planet.name} data={planet} />

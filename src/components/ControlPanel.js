@@ -15,13 +15,14 @@ const ControlPanel = ({ hwoParams, setHwoParams }) => {
             type="range"
             min="5"
             max="15"
-            step="0.5"
+            step="0.1"
             value={hwoParams.telescopeDiameter}
             onChange={handleDiameterChange}
           />
           <span>{hwoParams.telescopeDiameter} m</span>
         </label>
       </div>
+      <div>(Green means observable, red means not)</div>
     </div>
   );
 };

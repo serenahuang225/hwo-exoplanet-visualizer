@@ -8,11 +8,7 @@ import Papa from 'papaparse';
 export const parseCSV = async (url) => {
   try {
     const response = await fetch(url);
-    // console.log(response)
-    const reader = response.body.getReader();
-    const result = await reader.read(); // raw array
-    const decoder = new TextDecoder('utf-8');
-    const csv = decoder.decode(result.value); // the csv text
+    const csv = await response.text(); // the csv text
     const results = Papa.parse(csv, { header: true, dynamicTyping: true });
     // console.log(results)
 
@@ -33,6 +29,8 @@ export const parseCSV = async (url) => {
       dec: row.dec,
       discoveryMethod: row.discoverymethod,
       discoveryYear: row.disc_year,
+      discoveryFac: row.disc_facility,
+      eqlTemp: row.pl_eqt,
       // Add other mapped fields if necessary
     }));
 

@@ -25,7 +25,6 @@ const ExoplanetMarker = ({ data, hwoParams }) => {
 
   const handlePointerOver = (e) => {
     e.stopPropagation();
-    console.log("tooltip in")
     showTooltip(name, { x: e.clientX, y: e.clientY });
   };
 

@@ -21,3 +21,13 @@ body {
   bottom: 0;
   left: 0;
 }
+.modal {
+  padding: 2rem 2rem;
+  position: absolute;
+  z-index: 5;
+  color: white;
+  background-color: #ffffff50;
+  width: 25vw;
+  bottom: 0;
+  right: 0;
+}
