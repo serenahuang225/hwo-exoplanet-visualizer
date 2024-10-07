@@ -12,7 +12,7 @@ function StarsBackground() {
 
   return (
     <mesh>
-      <sphereGeometry args={[1000, 64, 64]} />
+      <sphereGeometry args={[300, 128, 128]} />
       <meshBasicMaterial map={starTexture} side={THREE.BackSide} />
     </mesh>
   );
@@ -27,18 +27,17 @@ const ThreeDScene = ({ exoplanets, hwoParams }) => {
   }, [exoplanets, hwoParams]);
 
   return (
-    <Canvas style={{ background: 'black' }} camera={{ position: [0, 0, 100], fov: 60 }}>
-      <ambientLight intensity={0.5} />
+    <Canvas style={{ background: 'white' }} camera={{ position: [0, 0, 5], fov: 70 }}>
+      <ambientLight intensity={1} />
       <directionalLight position={[10, 10, 5]} intensity={1} />
       <StarsBackground />
-      <Stars />
 
       {processedExoplanets.map((planet) => (
         <ExoplanetMarker key={planet.name} data={planet} />
       ))}
 
       <Earth />
-      <OrbitControls enableZoom={false} />
+      <OrbitControls maxDistance={400} />
     </Canvas>
   );
 };

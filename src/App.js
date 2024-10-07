@@ -39,8 +39,8 @@ function App() {
 
   return (
     <div className="App">
-      <header style={{padding: '0rem 2rem'}}>
-        <h1>Habitable Worlds Observatory (HWO) Exoplanet Visualizer</h1>
+      <header style={{padding: '0rem 2rem', position: 'absolute', zIndex: 5, color: 'white', backgroundColor: '#ffffff50', width: '100%'}}>
+        <h2>Habitable Worlds Observatory (HWO) Exoplanet Visualizer</h2>
       </header>
       {/* <ControlPanel hwoParams={hwoParams} setHwoParams={setHwoParams} /> */}
 

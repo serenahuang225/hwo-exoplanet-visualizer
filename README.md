@@ -2,4 +2,4 @@
 
 Code for 2024 NASA Space Apps Challenge!
 
-Made by Bubbles in Space - Serena Huang
+Made by Bubbles in Space - Serena & Emily Huang
